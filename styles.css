@@ -1,0 +1,104 @@
+@import url('https://fonts.google.com/share?selection.family=Rubik:ital,wght@0,300..900;1,300..900');
+
+body {
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle at center, #1a1a2e, #16213e, #0f3460);
+    background-size: cover;
+    animation: moveStars 100s linear infinite;
+    color: #9da7c2;
+}
+
+@keyframes moveStars {
+    0% { background-position: 0 0; }
+    100% { background-position: -10000px 5000px; }
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(2, 8, 24, 0.89);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #9da7c2;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #10123c, #0e0b21, #06024f);
+    color: white;
+    cursor: pointer;
+    transition: background 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2a2f8d, #2a2160, #0a047e);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+
+#share-quote {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#welcome-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(9, 3, 26);
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 6.5s ease-out;
+    animation: fadeIn 4.5s ease-out;
+    font-weight: bold; /* Add this line to make the font bold */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.dark-mode #welcome-message {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease-in-out, visibility 2s ease-in-out;
+}

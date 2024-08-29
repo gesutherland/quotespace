@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotespace</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/23576f31b2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="welcome-message">Welcome to Quotespace. Let's be inspired today!</div>
+    <div id= "main-content" class="container">
+        <h1>Quotespace</h1>
+        <p id="quote">Click to be inspired!</p>
+        <button id="new-quote">Generate</button>
+        <!-- Move the icon inside the container -->
+        <i id="share-quote" class="fa fa-share-square-o" aria-hidden="true" style="font-size: 24px; cursor: pointer;"></i>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const shareQuote = document.getElementById('share-quote');
+        const quote = document.getElementById('quote');
+        shareQuote.addEventListener('click', () => {
+            const text = quote.innerText;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Quote of the Day',
+                    text: text,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                alert('Web Share API not supported');
+            }
+        });
+    </script>
+</body>
+</html>
